@@ -1,0 +1,36 @@
+<!-- add this ajax-cart-template.liquid -->
+<div class=" new-text-free appear-animation appear-delay-1 ">
+   <p id="free-shipping-message">{{{freeshippingMassage}}}</p>
+</div>  
+     
+<script> 
+// add this in theme.js.liquid
+  var freeshipping = 4900;
+  var cartTotal = cart.total_price;
+  var remaing = (freeshipping - cartTotal) / 100;
+  if (freeshipping > cartTotal ) {
+    var massage ='<span class="spend-line">Spend another $' + remaing + ' to get FREE Shipping!</span><br>Free U.S. Shipping on orders over $49';
+  } else {
+   var massage ='Congratulations for free shipping!';
+  }
+  // find this 
+  data = {
+    freeshippingMassage: massage
+  };
+</script>
+<style>
+.spend-line{
+  background-color:#25bcba;
+  padding: 6px;
+  color: white;
+  width: 100%;
+  display: inline-block;
+}
+.new-text-free{
+  left: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top:0;
+}
+</style> 
