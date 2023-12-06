@@ -15,9 +15,15 @@
    var massage ='Congratulations for free shipping!';
   }
   // find this 
-  data = {
-    freeshippingMassage: massage
-  };
+          data = {
+            items: items,
+            note: cart.note,
+            lastAnimationRow: animation_row,
+            cartDiscounts: cart.cart_level_discount_applications,
+            cartDiscountsApplied: cart.cart_level_discount_applications.length === 0 ? false : true,
+            totalPrice: theme.Currency.formatMoney(cart.total_price, theme.settings.moneyFormat),
+            freeshippingMassage: massage
+          };
 </script>
 <style>
 .spend-line{
